@@ -1,77 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Interactive Exploration Map</title>
 
 <style>
-body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#f4f1e8;
-    text-align:center;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f1e8;
+    text-align: center;
 }
 
-h1{
-    margin-top:20px;
-    color:#244c3a;
+h1 {
+    margin-top: 20px;
+    color: #244c3a;
 }
 
-.subtitle{
-    color:#555;
-    margin-bottom:20px;
+.subtitle {
+    color: #555;
+    margin-bottom: 20px;
 }
 
-.map-wrapper{
-    position:relative;
-    width:1000px;
-    max-width:95%;
-    margin:auto;
+.map-wrapper {
+    position: relative;
+    width: 1000px;
+    max-width: 95%;
+    margin: auto;
 }
 
-.map-image{
-    width:100%;
-    display:block;
-    border-radius:12px;
+.map-image {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
 }
 
-.hotspot{
-    position:absolute;
-    width:28px;
-    height:28px;
-    border-radius:50%;
-    background:#ffcf4d;
-    border:3px solid white;
-    cursor:pointer;
-    transform:translate(-50%,-50%);
-    box-shadow:0 0 12px rgba(255,207,77,0.8);
+.hotspot {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #ffcf4d;
+    border: 3px solid white;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 12px rgba(255, 207, 77, 0.8);
 }
 
-.hotspot:hover{
-    transform:translate(-50%,-50%) scale(1.15);
+.hotspot:hover {
+    transform: translate(-50%, -50%) scale(1.15);
 }
 
-.popup{
-    position:absolute;
-    background:white;
-    padding:15px;
-    border-radius:12px;
-    box-shadow:0 4px 15px rgba(0,0,0,0.2);
-    width:250px;
-    display:none;
-    z-index:10;
+.popup {
+    position: absolute;
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    width: 250px;
+    display: none;
+    z-index: 10;
 }
 
-.popup h3{
-    margin-top:0;
-    color:#244c3a;
+.popup h3 {
+    margin-top: 0;
+    color: #244c3a;
 }
 
-.close{
-    float:right;
-    cursor:pointer;
-    font-weight:bold;
+.close {
+    float: right;
+    cursor: pointer;
+    font-weight: bold;
 }
 </style>
 </head>
@@ -83,64 +84,60 @@ h1{
 
 <div class="map-wrapper">
 
-    <img src="exploration.png" class="map-image">
+<img src="exploration.png" class="map-image">
 
-    <!-- Rivers -->
-    <div class="hotspot"
-         style="left:44.4%; top:25.9%;"
-         onclick="openPopup('river')">
-    </div>
+<div class="hotspot"
+     style="left:44.4%; top:25.9%;"
+     onclick="openPopup('river')">
+</div>
 
-    <!-- Lakes -->
-    <div class="hotspot"
-         style="left:52.3%; top:52.5%;"
-         onclick="openPopup('lake')">
-    </div>
+<div class="hotspot"
+     style="left:52.3%; top:52.5%;"
+     onclick="openPopup('lake')">
+</div>
 
-    <!-- Mountains -->
-    <div class="hotspot"
-         style="left:83.5%; top:35.3%;"
-         onclick="openPopup('mountain')">
-    </div>
+<div class="hotspot"
+     style="left:83.5%; top:35.3%;"
+     onclick="openPopup('mountain')">
+</div>
 
-    <!-- Waterfalls -->
-    <div class="hotspot"
-         style="left:80.3%; top:75.2%;"
-         onclick="openPopup('waterfall')">
-    </div>
+<div class="hotspot"
+     style="left:80.3%; top:75.2%;"
+     onclick="openPopup('waterfall')">
+</div>
 
-    <div id="river" class="popup" style="left:48%; top:18%;">
-        <span class="close" onclick="closePopup('river')">✕</span>
-        <h3>Rivers</h3>
-        <p>Rivers are flowing bodies of water that support travel, farming, trade, and settlements.</p>
-    </div>
+<div id="river" class="popup" style="left:48%; top:18%;">
+    <span class="close" onclick="closePopup('river')">✕</span>
+    <h3>Rivers</h3>
+    <p>Rivers are flowing bodies of water that support travel, farming, trade, and settlements.</p>
+</div>
 
-    <div id="lake" class="popup" style="left:58%; top:45%;">
-        <span class="close" onclick="closePopup('lake')">✕</span>
-        <h3>Lakes</h3>
-        <p>Lakes are large inland bodies of water that provide freshwater, food, and transportation routes.</p>
-    </div>
+<div id="lake" class="popup" style="left:58%; top:45%;">
+    <span class="close" onclick="closePopup('lake')">✕</span>
+    <h3>Lakes</h3>
+    <p>Lakes are large inland bodies of water that provide freshwater, food, and transportation routes.</p>
+</div>
 
-    <div id="mountain" class="popup" style="left:58%; top:20%;">
-        <span class="close" onclick="closePopup('mountain')">✕</span>
-        <h3>Mountains</h3>
-        <p>Mountains are elevated landforms that often act as landmarks and influence climate and settlement patterns.</p>
-    </div>
+<div id="mountain" class="popup" style="left:58%; top:20%;">
+    <span class="close" onclick="closePopup('mountain')">✕</span>
+    <h3>Mountains</h3>
+    <p>Mountains are elevated landforms that often act as landmarks and influence climate and settlement patterns.</p>
+</div>
 
-    <div id="waterfall" class="popup" style="left:58%; top:65%;">
-        <span class="close" onclick="closePopup('waterfall')">✕</span>
-        <h3>Waterfalls</h3>
-        <p>Waterfalls form when water flows over a steep drop and are important natural landmarks.</p>
-    </div>
+<div id="waterfall" class="popup" style="left:58%; top:65%;">
+    <span class="close" onclick="closePopup('waterfall')">✕</span>
+    <h3>Waterfalls</h3>
+    <p>Waterfalls form when water flows over a steep drop and are important natural landmarks.</p>
+</div>
 
 </div>
 
 <script>
-function openPopup(id){
+function openPopup(id) {
     document.getElementById(id).style.display = "block";
 }
 
-function closePopup(id){
+function closePopup(id) {
     document.getElementById(id).style.display = "none";
 }
 </script>
